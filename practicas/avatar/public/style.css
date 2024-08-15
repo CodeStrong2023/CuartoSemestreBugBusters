@@ -6,6 +6,7 @@
 
 body{
     background-image: url("avatar.png");
+    background-attachment:fixed;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -20,7 +21,7 @@ body{
     border: 1px solid rgba(255, 255, 255, 0.69);
     border-radius: 10px;
     width: 400px;
-    margin: 20px 20px;
+    margin: 20px auto;
     padding: 5px;
     list-style-position: inside;
     font-size: 18px;
@@ -35,8 +36,8 @@ body{
 
 .container{
     width: 700px;
-    height: 520px;
-    margin: 0px auto;
+    height: auto;
+    margin: 20px auto;
     background: rgba(227, 248, 255, 0.22);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.922);
