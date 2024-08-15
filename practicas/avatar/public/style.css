@@ -1,0 +1,145 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url("avatar.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/****** Reglas ******/
+.reglas-juego{
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10.1px);
+    -webkit-backdrop-filter: blur(10.1px);
+    border: 1px solid rgba(255, 255, 255, 0.69);
+    border-radius: 10px;
+    width: 400px;
+    margin: 20px 20px;
+    padding: 5px;
+    list-style-position: inside;
+    font-size: 18px;
+}
+
+.reglas-juego h2{
+    font-size: 24px;
+}
+
+
+/****** Juego ******/
+
+.container{
+    width: 700px;
+    height: 520px;
+    margin: 0px auto;
+    background: rgba(227, 248, 255, 0.22);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.922);
+    backdrop-filter: blur(4.0px);
+    -webkit-backdrop-filter: blur(4.0px);
+    border: 1px solid rgba(227, 248, 255, 1);
+}
+
+h1{
+    font-size: 50px;
+    text-align: center;
+    margin: 10px;
+}
+
+h2{
+    font-size: 40px;
+    text-align: center;
+    margin: 10px;
+}
+
+#seleccionar-personaje{
+    font-size: 25px;
+    text-align: center;
+}
+
+#seleccionar-personaje input{
+    margin: 10 5px;
+}
+
+#boton-personaje{
+    margin-top: 15px;
+    width: 160px;
+    height: 35px;
+    border: 1px solid #5fc8e2;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #5fc8e2;
+    color: white;
+}
+
+#boton-personaje:hover{
+    background-color:#03bafc;
+    border: 1px solid #03bafc;
+}
+
+#seleccionar-ataque{
+    text-align: center;
+    margin: 15px;
+}
+
+#mensajes{
+    font-size: 22px;
+    text-align: center;
+    margin: 15px;
+}
+
+#reiniciar{
+    text-align: center;
+    margin: 15px;
+}
+
+#seleccionar-ataque > p{
+    font-size: 20px;
+}
+
+#enemigo-vida, #personaje-vida{
+    font-weight: bold;
+}
+
+#boton-barrida, #boton-patada, #boton-punio{
+    width: 120px;
+    height: 35px;
+    border-radius: 15px;
+    font-size: 20px;
+    background-color: #febd00;
+    border: 1px solid #febd00;
+    color: white;
+    margin: 5px;
+}
+
+#boton-barrida:hover, #boton-patada:hover, #boton-punio:hover{
+    background-color: #c22e00;
+    border: 1px solid #c22e00;
+}
+
+#mensaje-ganador{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#boton-reiniciar{
+    width: 120px;
+    height: 30px;
+    border-radius: 15px;
+    font-size: 18px;
+    background-color: #61c5e1;
+    border: 1px solid #61c5e1;
+    color: white;
+    margin-bottom: 10px;
+}
+
+#boton-reiniciar:hover{
+    background-color: #1a97f0;
+    border: 1px solid #1a97f0;
+}
