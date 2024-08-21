@@ -107,6 +107,11 @@ function crearMensaje() {
   parrafo.innerHTML = `Tu personaje atacó con ${ataqueJugador}, el personaje enemigo atacó con ${ataqueEnemigo} - ${ganador}`;
 
   seccionMensaje.appendChild(parrafo);
+
+  // Elimina el mensaje después 
+  setTimeout(() => {
+    seccionMensaje.removeChild(parrafo);
+  }, 1000);
 }
 
 function ganadorPelea(ataqueJugador, ataqueEnemigo) {
