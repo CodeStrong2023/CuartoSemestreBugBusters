@@ -2,11 +2,12 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
 }
 
 body{
     background-image: url("avatar.png");
-    background-attachment:fixed;
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -20,11 +21,18 @@ body{
     -webkit-backdrop-filter: blur(10.1px);
     border: 1px solid rgba(255, 255, 255, 0.69);
     border-radius: 10px;
-    width: 400px;
+    width: 90%;
+    max-width: 400px;
     margin: 20px auto;
-    padding: 5px;
+    padding: 15px;
     list-style-position: inside;
-    font-size: 18px;
+    font-size: 17px;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
 }
 
 .reglas-juego h2{
@@ -35,7 +43,8 @@ body{
 /****** Juego ******/
 
 .container{
-    width: 700px;
+    width: 90%;
+    max-width: 600px;
     height: auto;
     margin: 20px auto;
     background: rgba(227, 248, 255, 0.22);
@@ -44,23 +53,28 @@ body{
     backdrop-filter: blur(4.0px);
     -webkit-backdrop-filter: blur(4.0px);
     border: 1px solid rgba(227, 248, 255, 1);
-}
+    padding: 20px;
 
-h1{
-    font-size: 50px;
-    text-align: center;
+}
+h1 {
+    text-align: center; 
+}
+h1 img{
+    height: 80px;
+    width: auto ;
     margin: 10px;
 }
 
 h2{
-    font-size: 40px;
+    font-size: 32px;
     text-align: center;
     margin: 10px;
 }
 
 #seleccionar-personaje{
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
+    font-family: sans-serif;
 }
 
 #seleccionar-personaje input{
@@ -69,7 +83,8 @@ h2{
 
 #boton-personaje{
     margin-top: 15px;
-    width: 160px;
+    width: 100%;
+    max-width: 160px;
     height: 35px;
     border: 1px solid #5fc8e2;
     border-radius: 15px;
@@ -109,7 +124,8 @@ h2{
 }
 
 #boton-barrida, #boton-patada, #boton-punio{
-    width: 120px;
+    width: 100%;
+    max-width: 120px;
     height: 35px;
     border-radius: 15px;
     font-size: 20px;
@@ -130,7 +146,8 @@ h2{
 }
 
 #boton-reiniciar{
-    width: 120px;
+    width: 100%;
+    max-width: 120px;
     height: 30px;
     border-radius: 15px;
     font-size: 18px;
@@ -143,4 +160,45 @@ h2{
 #boton-reiniciar:hover{
     background-color: #1a97f0;
     border: 1px solid #1a97f0;
+}
+
+/* Utilizamos media queries para ajustes en pantallas pequeñas */
+@media (max-width: 700px) {
+    body {
+        background-size: cover; /*utilizamos cover para que la imagen de fondo cubra toda la pantalla*/ 
+        background-position: center top;
+    }
+    .reglas-juego {
+        width: 100%;
+        padding: 14px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+    }
+    h1 img {
+        height: 60px;
+    }
+    h2 {
+        font-size: 24px;
+    }
+
+    #seleccionar-personaje {
+        font-size: 18px;
+    }
+
+    #mensajes {
+        font-size: 20px;
+    }
+
+    #boton-personaje, #boton-barrida, #boton-patada, #boton-punio, #boton-reiniciar {
+        width: 90%;
+        max-width: none;
+    }
+
+    h1 img {
+        height: 60px;
+    }
 }
