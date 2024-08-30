@@ -10,6 +10,45 @@ body{
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/****** MENU PRINCIPAL ******/
+.menu-principal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-menu{
+    display: block;
+    margin: 10px;
+    width: 200px;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid black;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+}
+
+#btn-reglas{
+    background-color: #94d5dd;
+}
+
+#btn-jugar{
+    background-color: #a32a14;
+}
+
+#btn-reglas:hover{
+    background-color: #2c7e89;
+}
+
+#btn-jugar:hover{
+    background-color: #510500;
 }
 
 /****** Reglas ******/
@@ -19,7 +58,7 @@ body{
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10.1px);
     -webkit-backdrop-filter: blur(10.1px);
-    border: 1px solid rgba(255, 255, 255, 0.69);
+    border: 1px solid black;
     border-radius: 10px;
     width: 90%;
     max-width: 400px;
@@ -79,6 +118,39 @@ h2{
 
 #seleccionar-personaje input{
     margin: 10 5px;
+    display: none;
+}
+
+label{
+    display: inline-block;
+    cursor: pointer;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 15px;
+    width: 100px;
+    padding: 10px;
+    background-color: var(--bg-color);
+    color: white;
+    transition: 0.3s ease-in;
+}
+label:hover{
+    transform: scale(1.2);
+}
+
+#aang {
+    --bg-color: #add8e6;
+}
+
+#katara {
+    --bg-color: #00008bc8;
+}
+
+#zuko {
+    --bg-color: #ff4500;
+}
+
+#toph {
+    --bg-color: #228b22;
 }
 
 #boton-personaje{
