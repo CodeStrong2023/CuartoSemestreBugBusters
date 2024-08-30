@@ -7,12 +7,14 @@
     <title>LA LEYENDA DE AANG: AVATAR</title>
   </head>
   <body>
-    <div class="contenedor">
-      <section id="seccion1" class="fila"></section>
-      <section id="seccion2" class="fila"></section>
-      <section id="seccion3" class="fila"></section>
+    <div class="container">
+    <h1><img src="logo_avatar.png" alt="AVATAR 🔥💧🌱🌪️" /></h1>
+
+    <div class="menu-principal" id="menu">
+      <button class="btn-menu" id="btn-reglas">Reglas</button>
+      <button class="btn-menu" id="btn-jugar">Jugar</button>
     </div>
-    <div class="reglas-juego">
+    <div class="reglas-juego" id="reglas">
       <h2>Reglas de juego</h2>
       <ul>
         <li>Selecciona un personaje</li>
@@ -28,23 +30,20 @@
       </ul>
     </div>
 
-    <div class="container">
-    <h1><img src="logo_avatar.png" alt="AVATAR 🔥💧🌱🌪️" /></h1>
-
       <div class="select-personaje">
         <section id="seleccionar-personaje">
             <h2>Elige tu personaje</h2>
             <input type="radio" name="personaje" id="zuko" />
-            <label for="zuko">Zuko</label>
+            <label for="zuko" id="zuko">Zuko</label>
     
             <input type="radio" name="personaje" id="katara" />
-            <label for="katara">Katara</label>
+            <label for="katara" id="katara">Katara</label>
     
             <input type="radio" name="personaje" id="aang" />
-            <label for="aang">Aang</label>
+            <label for="aang" id="aang">Aang</label>
     
             <input type="radio" name="personaje" id="toph" />
-            <label for="toph">Toph</label>
+            <label for="toph" id="toph">Toph</label>
             <br>
             <button id="boton-personaje">Seleccionar</button>
           </section>
