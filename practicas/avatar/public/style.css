@@ -1,11 +1,11 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: sans-serif;
 }
 
-body{
+body {
     background-image: url("avatar.png");
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -17,13 +17,13 @@ body{
 }
 
 /****** MENU PRINCIPAL ******/
-.menu-principal{
+.menu-principal {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.btn-menu{
+.btn-menu {
     display: block;
     margin: 10px;
     width: 200px;
@@ -35,24 +35,26 @@ body{
     font-size: 18px;
 }
 
-#btn-reglas{
+#btn-reglas,
+#boton-volver-reglas-juego,
+#boton-volver-jugar {
     background-color: #94d5dd;
 }
 
-#btn-jugar{
+#btn-jugar {
     background-color: #a32a14;
 }
 
-#btn-reglas:hover{
+#btn-reglas:hover {
     background-color: #2c7e89;
 }
 
-#btn-jugar:hover{
+#btn-jugar:hover {
     background-color: #510500;
 }
 
 /****** Reglas ******/
-.reglas-juego{
+.reglas-juego {
     background: rgba(255, 255, 255, 0.06);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -74,14 +76,13 @@ ul {
     padding-left: 0;
 }
 
-.reglas-juego h2{
+.reglas-juego h2 {
     font-size: 24px;
 }
 
-
 /****** Juego ******/
 
-.container{
+.container {
     width: 90%;
     max-width: 600px;
     height: auto;
@@ -89,39 +90,42 @@ ul {
     background: rgba(227, 248, 255, 0.22);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.922);
-    backdrop-filter: blur(4.0px);
-    -webkit-backdrop-filter: blur(4.0px);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     border: 1px solid rgba(227, 248, 255, 1);
     padding: 20px;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 h1 {
-    text-align: center; 
+    text-align: center;
 }
-h1 img{
+h1 img {
     height: 80px;
-    width: auto ;
+    width: auto;
     margin: 10px;
 }
 
-h2{
+h2 {
     font-size: 32px;
     text-align: center;
     margin: 10px;
 }
 
-#seleccionar-personaje{
+#seleccionar-personaje {
     font-size: 20px;
     text-align: center;
     font-family: sans-serif;
 }
 
-#seleccionar-personaje input{
+#seleccionar-personaje input {
     margin: 10 5px;
     display: none;
 }
 
-label{
+label {
     display: inline-block;
     cursor: pointer;
     margin: 10px;
@@ -133,7 +137,7 @@ label{
     color: white;
     transition: 0.3s ease-in;
 }
-label:hover{
+label:hover {
     transform: scale(1.2);
 }
 
@@ -153,7 +157,9 @@ label:hover{
     --bg-color: #228b22;
 }
 
-#boton-personaje{
+#boton-personaje,
+#boton-volver-reglas-juego,
+#boton-volver-jugar {
     margin-top: 15px;
     width: 100%;
     max-width: 160px;
@@ -166,36 +172,41 @@ label:hover{
     color: white;
 }
 
-#boton-personaje:hover{
-    background-color:#03bafc;
+#boton-personaje,
+#boton-volver-reglas-juego,
+#boton-volver-jugar:hover {
+    background-color: #03bafc;
     border: 1px solid #03bafc;
 }
 
-#seleccionar-ataque{
+#seleccionar-ataque {
     text-align: center;
     margin: 15px;
 }
 
-#mensajes{
+#mensajes {
     font-size: 22px;
     text-align: center;
     margin: 15px;
 }
 
-#reiniciar{
+#reiniciar {
     text-align: center;
     margin: 15px;
 }
 
-#seleccionar-ataque > p{
+#seleccionar-ataque > p {
     font-size: 20px;
 }
 
-#enemigo-vida, #personaje-vida{
+#enemigo-vida,
+#personaje-vida {
     font-weight: bold;
 }
 
-#boton-barrida, #boton-patada, #boton-punio{
+#boton-barrida,
+#boton-patada,
+#boton-punio {
     width: 100%;
     max-width: 120px;
     height: 35px;
@@ -207,17 +218,19 @@ label:hover{
     margin: 5px;
 }
 
-#boton-barrida:hover, #boton-patada:hover, #boton-punio:hover{
+#boton-barrida:hover,
+#boton-patada:hover,
+#boton-punio:hover {
     background-color: #c22e00;
     border: 1px solid #c22e00;
 }
 
-#mensaje-ganador{
+#mensaje-ganador {
     font-weight: bold;
     font-size: 20px;
 }
 
-#boton-reiniciar{
+#boton-reiniciar {
     width: 100%;
     max-width: 120px;
     height: 30px;
@@ -229,7 +242,7 @@ label:hover{
     margin-bottom: 10px;
 }
 
-#boton-reiniciar:hover{
+#boton-reiniciar:hover {
     background-color: #1a97f0;
     border: 1px solid #1a97f0;
 }
@@ -237,7 +250,7 @@ label:hover{
 /* Utilizamos media queries para ajustes en pantallas pequeñas */
 @media (max-width: 700px) {
     body {
-        background-size: cover; /*utilizamos cover para que la imagen de fondo cubra toda la pantalla*/ 
+        background-size: cover; /*utilizamos cover para que la imagen de fondo cubra toda la pantalla*/
         background-position: center top;
     }
     .reglas-juego {
@@ -265,12 +278,23 @@ label:hover{
         font-size: 20px;
     }
 
-    #boton-personaje, #boton-barrida, #boton-patada, #boton-punio, #boton-reiniciar {
+    #boton-personaje,
+    #boton-barrida,
+    #boton-patada,
+    #boton-punio,
+    #boton-reiniciar {
         width: 90%;
         max-width: none;
     }
 
     h1 img {
         height: 60px;
+    }
+
+    #boton-personaje,
+    #boton-volver-jugar,
+    #boton-volver-reglas-juego {
+        width: 90%; /* Asegura que el ancho se ajuste al 90% del contenedor en pantallas pequeñas */
+        max-width: none; /* Permite el ajuste dinámico */
     }
 }
