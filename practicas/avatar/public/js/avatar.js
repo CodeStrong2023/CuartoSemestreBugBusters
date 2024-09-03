@@ -14,9 +14,7 @@ let btnPunio = document.getElementById("boton-punio");
 let btnPatada = document.getElementById("boton-patada");
 let btnBarrida = document.getElementById("boton-barrida");
 
-let sectionSeleccionarPersonaje = document.getElementById(
-    "seleccionar-personaje"
-);
+let sectionSeleccionarPersonaje = document.getElementById("seleccionar-personaje");
 let seccionSeleccionarPersonaje = document.getElementById("select-personaje");
 let sectionSeleccionarAtaque = document.getElementById("seleccionar-ataque");
 let sectionReiniciar = document.getElementById("boton-reiniciar");
