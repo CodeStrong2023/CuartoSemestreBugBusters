@@ -164,7 +164,7 @@ label:hover {
     width: 100%;
     max-width: 160px;
     height: 35px;
-    border: 1px solid #5fc8e2;
+    border: 1px solid black;
     border-radius: 15px;
     font-size: 20px;
     font-weight: bold;
@@ -172,11 +172,13 @@ label:hover {
     color: white;
 }
 
-#boton-personaje,
-#boton-volver-reglas-juego,
+
+#boton-personaje:hover,
+#boton-volver-reglas-juego:hover,
 #boton-volver-jugar:hover {
     background-color: #03bafc;
-    border: 1px solid #03bafc;
+    border: 1px solid black;
+    cursor: pointer;
 }
 
 #seleccionar-ataque {
@@ -207,8 +209,7 @@ label:hover {
 #boton-barrida,
 #boton-patada,
 #boton-punio {
-    width: 100%;
-    max-width: 120px;
+    width: 120px;
     height: 35px;
     border-radius: 15px;
     font-size: 20px;
@@ -231,20 +232,19 @@ label:hover {
 }
 
 #boton-reiniciar {
-    width: 100%;
-    max-width: 120px;
+    width: 200px;
     height: 30px;
     border-radius: 15px;
     font-size: 18px;
     background-color: #61c5e1;
-    border: 1px solid #61c5e1;
+    border: 1px solid black;
     color: white;
     margin-bottom: 10px;
 }
 
 #boton-reiniciar:hover {
     background-color: #1a97f0;
-    border: 1px solid #1a97f0;
+    border: 1px solid black;
 }
 
 /* Utilizamos media queries para ajustes en pantallas pequeñas */
@@ -281,8 +281,7 @@ label:hover {
     #boton-personaje,
     #boton-barrida,
     #boton-patada,
-    #boton-punio,
-    #boton-reiniciar {
+    #boton-punio{
         width: 90%;
         max-width: none;
     }
@@ -291,10 +290,10 @@ label:hover {
         height: 60px;
     }
 
-    #boton-personaje,
+
     #boton-volver-jugar,
     #boton-volver-reglas-juego {
-        width: 90%; /* Asegura que el ancho se ajuste al 90% del contenedor en pantallas pequeñas */
-        max-width: none; /* Permite el ajuste dinámico */
-    }
+        width: 90%;
+        max-width: none; 
+    } 
 }
