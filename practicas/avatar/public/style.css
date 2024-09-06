@@ -1,0 +1,299 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background-image: url("avatar.png");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/****** MENU PRINCIPAL ******/
+.menu-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-menu {
+    display: block;
+    margin: 10px;
+    width: 200px;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid black;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+}
+
+#btn-reglas,
+#boton-volver-reglas-juego,
+#boton-volver-jugar {
+    background-color: #94d5dd;
+}
+
+#btn-jugar {
+    background-color: #a32a14;
+}
+
+#btn-reglas:hover {
+    background-color: #2c7e89;
+}
+
+#btn-jugar:hover {
+    background-color: #510500;
+}
+
+/****** Reglas ******/
+.reglas-juego {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10.1px);
+    -webkit-backdrop-filter: blur(10.1px);
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 15px;
+    list-style-position: inside;
+    font-size: 17px;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.reglas-juego h2 {
+    font-size: 24px;
+}
+
+/****** Juego ******/
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    margin: 20px auto;
+    background: rgba(227, 248, 255, 0.22);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.922);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(227, 248, 255, 1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    text-align: center;
+}
+h1 img {
+    height: 80px;
+    width: auto;
+    margin: 10px;
+}
+
+h2 {
+    font-size: 32px;
+    text-align: center;
+    margin: 10px;
+}
+
+#seleccionar-personaje {
+    font-size: 20px;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+#seleccionar-personaje input {
+    margin: 10 5px;
+    display: none;
+}
+
+label {
+    display: inline-block;
+    cursor: pointer;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 15px;
+    width: 100px;
+    padding: 10px;
+    background-color: var(--bg-color);
+    color: white;
+    transition: 0.3s ease-in;
+}
+label:hover {
+    transform: scale(1.2);
+}
+
+#aang {
+    --bg-color: #add8e6;
+}
+
+#katara {
+    --bg-color: #00008bc8;
+}
+
+#zuko {
+    --bg-color: #ff4500;
+}
+
+#toph {
+    --bg-color: #228b22;
+}
+
+#boton-personaje,
+#boton-volver-reglas-juego,
+#boton-volver-jugar {
+    margin-top: 15px;
+    width: 100%;
+    max-width: 160px;
+    height: 35px;
+    border: 1px solid black;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #5fc8e2;
+    color: white;
+}
+
+
+#boton-personaje:hover,
+#boton-volver-reglas-juego:hover,
+#boton-volver-jugar:hover {
+    background-color: #03bafc;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+#seleccionar-ataque {
+    text-align: center;
+    margin: 15px;
+}
+
+#mensajes {
+    font-size: 22px;
+    text-align: center;
+    margin: 15px;
+}
+
+#reiniciar {
+    text-align: center;
+    margin: 15px;
+}
+
+#seleccionar-ataque > p {
+    font-size: 20px;
+}
+
+#enemigo-vida,
+#personaje-vida {
+    font-weight: bold;
+}
+
+#boton-barrida,
+#boton-patada,
+#boton-punio {
+    width: 120px;
+    height: 35px;
+    border-radius: 15px;
+    font-size: 20px;
+    background-color: #febd00;
+    border: 1px solid #febd00;
+    color: white;
+    margin: 5px;
+}
+
+#boton-barrida:hover,
+#boton-patada:hover,
+#boton-punio:hover {
+    background-color: #c22e00;
+    border: 1px solid #c22e00;
+}
+
+#mensaje-ganador {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#boton-reiniciar {
+    width: 200px;
+    height: 30px;
+    border-radius: 15px;
+    font-size: 18px;
+    background-color: #61c5e1;
+    border: 1px solid black;
+    color: white;
+    margin-bottom: 10px;
+}
+
+#boton-reiniciar:hover {
+    background-color: #1a97f0;
+    border: 1px solid black;
+}
+
+/* Utilizamos media queries para ajustes en pantallas pequeñas */
+@media (max-width: 700px) {
+    body {
+        background-size: cover; /*utilizamos cover para que la imagen de fondo cubra toda la pantalla*/
+        background-position: center top;
+    }
+    .reglas-juego {
+        width: 90%;
+        padding: 14px;
+    }
+
+    .container {
+        width: 90%;
+        padding: 10px;
+        font-size: 16px;
+    }
+    h1 img {
+        height: 60px;
+    }
+    h2 {
+        font-size: 24px;
+    }
+
+    #seleccionar-personaje {
+        font-size: 18px;
+    }
+
+    #mensajes {
+        font-size: 20px;
+    }
+
+    #boton-personaje,
+    #boton-barrida,
+    #boton-patada,
+    #boton-punio{
+        width: 90%;
+        max-width: none;
+    }
+
+    h1 img {
+        height: 60px;
+    }
+
+
+    #boton-volver-jugar,
+    #boton-volver-reglas-juego {
+        width: 90%;
+        max-width: none; 
+    } 
+}
