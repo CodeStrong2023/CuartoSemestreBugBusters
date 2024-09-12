@@ -1,9 +1,15 @@
 import express from "express";
 import cors from "cors";
+import path from "path";
+import { fileURLToPath } from 'url';
 
 import { MercadoPagoConfig, Preference } from "mercadopago";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const client = new MercadoPagoConfig({
-  accessToken: "", //agregar el token
+  accessToken: "APP_USR-4339958248082570-091115-8e15d6ecf9a628b46035cca81cd53997-1988060350", //agregar el token
 });
 
 const app = express();
@@ -12,8 +18,10 @@ const port = 8080;
 app.use(cors());
 app.use(express.json());
 
+app.use(express.static(path.join(__dirname, '../client', '../client')));
+
 app.get("/", function (req, res) {
-  res.send("Soy el server");
+  res.sendFile(path.join(__dirname, "../client/media", "index.html")); // Renderiza el archivo HTML
 });
 
 app.post("/create_preference", async (req, res) => {
@@ -28,9 +36,9 @@ app.post("/create_preference", async (req, res) => {
         },
       ],
       back_urls: {
-        success: "http://127.0.0.1:5500/E-COMMERCE2024/client/media/index.html",
-        failure: "http://127.0.0.1:5500/E-COMMERCE2024/client/media/index.html",
-        pending: "http://127.0.0.1:5500/E-COMMERCE2024/client/media/index.html",
+        success: "http://localhost:8080",
+        failure: "http://localhost:8080",
+        pending: "http://localhost:8080",
       },
       auto_return: "approved",
     };
