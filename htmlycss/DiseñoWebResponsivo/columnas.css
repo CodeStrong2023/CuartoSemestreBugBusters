@@ -97,7 +97,7 @@ a:active{
 }
 
 
-@media(min-width:1200px){
+@media(min-width:3000px){
     .col-lg-12{width:100%;}
     .col-lg-11{width:91.66666667%;}
     .col-lg-10{width:83.33333333%;}
@@ -113,7 +113,7 @@ a:active{
     .col-lg-0{display:none;}
 }
 
-@media(max-width:1199px) and (min-width: 992px){
+@media(max-width:2999px) and (min-width: 992px){
     .col-md-12{width:100%;}
     .col-md-11{width:91.66666667%;}
     .col-md-10{width:83.33333333%;}
