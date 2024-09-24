@@ -142,7 +142,7 @@ label:hover {
 }
 
 #aang {
-    --bg-color: #add8e6;
+    --bg-color: #56bfe2;
 }
 
 #katara {
@@ -157,10 +157,21 @@ label:hover {
     --bg-color: #228b22;
 }
 
+#appa{
+    --bg-color: #FFD700;
+}
+
+.personajes-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 #boton-personaje,
 #boton-volver-reglas-juego,
 #boton-volver-jugar {
-    margin-top: 15px;
+    margin: 15px 0px;
     width: 100%;
     max-width: 160px;
     height: 35px;
@@ -213,8 +224,8 @@ label:hover {
     height: 35px;
     border-radius: 15px;
     font-size: 20px;
-    background-color: #febd00;
-    border: 1px solid #febd00;
+    background-color: #fe9000;
+    border: 1px solid #fe9000;
     color: white;
     margin: 5px;
 }

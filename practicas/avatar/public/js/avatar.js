@@ -1,5 +1,8 @@
-// VARIABLES GLOBALES
+import { personajes } from "./personajes.js"; //importamos la lista con los personajes
 
+// VARIABLES GLOBALES
+let personajeEnemigo;
+let personajeJugador;
 let ataqueJugador;
 let ataqueEnemigo;
 let personajeVida = 3;
@@ -8,14 +11,12 @@ let enemigoVida = 3;
 let ganador = document.getElementById("ganador");
 let vidaPersonaje = document.getElementById("personaje-vida");
 let vidaEnemigo = document.getElementById("enemigo-vida");
-let mensajeGanador = document.getElementById("mensaje-ganador");
 
 let btnPunio = document.getElementById("boton-punio");
 let btnPatada = document.getElementById("boton-patada");
 let btnBarrida = document.getElementById("boton-barrida");
 
 let sectionSeleccionarPersonaje = document.getElementById("seleccionar-personaje");
-let seccionSeleccionarPersonaje = document.getElementById("select-personaje");
 let sectionSeleccionarAtaque = document.getElementById("seleccionar-ataque");
 let sectionReiniciar = document.getElementById("boton-reiniciar");
 let seccionMensaje = document.getElementById("mensajes");
@@ -61,6 +62,8 @@ function iniciarJuego() {
     menuPrincipal.style.display = "none";
     sectionSeleccionarPersonaje.style.display = "block";
 
+    generarPersonaje();
+
     let botonPersonajeJugador = document.getElementById("boton-personaje");
     botonPersonajeJugador.addEventListener("click", function () {
         seleccionarPersonajeJugador(), seleccionarEnemigoRandom();
@@ -77,6 +80,31 @@ function reiniciarJuego() {
     location.reload();
 }
 
+function generarPersonaje(){ //esta función modifica dinamicamente los inputs en el html para crear a los jugadores
+    const personajesContainer = document.getElementById('personajes-container');
+
+    if (personajesContainer.children.length > 0) { //si ya hay elementos en el contenedor, no los vuelve a generar
+        return;
+    }
+
+    personajes.forEach((personaje) => {
+        let radioInput = document.createElement('input');
+        radioInput.type = 'radio';
+        radioInput.name = 'personaje';
+        radioInput.id = personaje.nombre.toLowerCase();
+        radioInput.value = personaje.nombre;
+
+        let label = document.createElement('label');
+        label.htmlFor = personaje.nombre.toLowerCase();
+        label.id = personaje.nombre.toLowerCase();
+        label.innerHTML = personaje.nombre;
+
+        personajesContainer.appendChild(radioInput);
+        personajesContainer.appendChild(label);
+        personajesContainer.appendChild(document.createElement('br'));
+    });
+}
+
 function seleccionarPersonajeJugador() {
     let personajes = document.getElementsByName("personaje");
     let spanPersonajeJugador = document.getElementById("personaje-jugador");
@@ -86,17 +114,8 @@ function seleccionarPersonajeJugador() {
     for (let personaje of personajes) {
         if (personaje.checked) {
             personajeSeleccionado = true;
-
-            if (personaje.id == "zuko") {
-                spanPersonajeJugador.innerHTML = "Zuko";
-            } else if (personaje.id == "katara") {
-                spanPersonajeJugador.innerHTML = "Katara";
-            } else if (personaje.id == "aang") {
-                spanPersonajeJugador.innerHTML = "Aang";
-            } else {
-                spanPersonajeJugador.innerHTML = "Toph";
-            }
-
+            personajeJugador = personaje.value;
+            spanPersonajeJugador.innerHTML = personajeJugador;
             sectionSeleccionarAtaque.style.display = "block";
             sectionSeleccionarPersonaje.style.display = "none";
             break;
@@ -104,28 +123,28 @@ function seleccionarPersonajeJugador() {
     }
 
     if (!personajeSeleccionado) {
-        const msj = document.createElement("p");
-        msj.textContent = "Debes seleccionar un personaje";
-        msj.style.color = "red";
-        sectionSeleccionarPersonaje.appendChild(msj);
-        setTimeout(() => {
-            sectionSeleccionarPersonaje.removeChild(msj);
-        }, 1300);
+
+        let msjExistente = document.getElementById("error")
+
+        if (!msjExistente) {
+            const msj = document.createElement("p");
+            msj.textContent = "Debes seleccionar un personaje";
+            msj.style.color = "red";
+            msj.style.fontWeight = "bold";
+            msj.id = "error"
+            sectionSeleccionarPersonaje.appendChild(msj);
+            setTimeout(() => {
+                sectionSeleccionarPersonaje.removeChild(msj);
+            }, 1300);
+        }
     }
 }
 
 function seleccionarEnemigoRandom() {
     let enemigoRandom = document.getElementById("personaje-enemigo");
-    let numRandom = Math.round(Math.random() * 3 + 1);
-    if (numRandom == 1) {
-        enemigoRandom.innerHTML = "Zuko";
-    } else if (numRandom == 2) {
-        enemigoRandom.innerHTML = "Katara";
-    } else if (numRandom == 3) {
-        enemigoRandom.innerHTML = "Aang";
-    } else {
-        enemigoRandom.innerHTML = "Toph";
-    }
+    let numRandom = Math.floor(Math.random() * personajes.length);
+    personajeEnemigo = personajes[numRandom].nombre;
+    enemigoRandom.innerHTML = personajeEnemigo;
 }
 
 function ataquePunio() {
@@ -169,7 +188,7 @@ function ganadorPelea(ataqueJugador, ataqueEnemigo) {
     ) {
         ganador = "GANASTE";
         crearMensaje(
-            `Tu personaje: ${ataqueJugador} | enemigo: ${ataqueEnemigo} - ${ganador}`
+            `Tu personaje: ${ataqueJugador} | Enemigo: ${ataqueEnemigo} - ${ganador}`
         );
         vidaEnemigo.innerHTML = --enemigoVida; //restamos la vida del enemigo si nuestro personaje gana
         if (enemigoVida == 0) {
