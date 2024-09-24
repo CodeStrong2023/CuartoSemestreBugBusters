@@ -20,9 +20,9 @@
     clear: both;
     display: table;
 }
+
 [class*="col-"]{
     float: left;
-    /* border: 1px solid black; */
     padding: 20px;
 }
 
@@ -33,7 +33,8 @@ header #logo{
     line-height: 60px;
 }
 
-header center{
+header center p{
+    text-align: center;
     width:42px;
     line-height:42px;
     border-radius:100%;
@@ -41,20 +42,129 @@ header center{
     color:white;
 }
 
-header center#icono1{
+header center#icono1 p{
     background: blue;
 }
 
-header center#icono2{
+header center#icono2 p{
     background: green;
 }
 
-header center#icono3{
+header center#icono3 p{
     background: red;
 }
 
+nav ul li {
+    padding: 10px;
+    text-align: center;
+}
 
-@media(min-width:1200px){
+nav ul li a{
+    display: block;
+    background: rgb(104, 22, 104);
+    font-family: "Kaushan Script", cursive;
+    color: white;
+    line-height: 48px;
+}
+
+nav a:hover{
+    background: rosybrown;
+}
+
+a:active{
+    background: rgb(224, 22, 224);
+}
+
+#seccion3 center{
+    padding:20px;
+}
+
+#seccion3 img{
+    border-radius:100%;
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+}
+
+#seccion3 h1{
+    font-family: "Kaushan Script", cursive;
+    font-size: 40px;
+    padding: 10px;
+}
+
+#seccion3 p{
+    padding:10px;
+}
+
+#seccion4 aside ul li{
+    background-color: violet;
+    padding: 10px;
+    margin: 2px 10px;
+    list-style: square;
+    list-style-position: inside;
+    cursor: pointer;
+}
+
+#seccion4 li:hover{
+    background-color: hsl(300, 76%, 62%);
+}
+
+#seccion4 article h1{
+    font-family: "Kaushan Script",cursive;
+    font-size:40px;
+    margin:20px;
+}
+
+#seccion4 img{
+    float:left;
+    margin-right:20px;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+#seccion4 article p{
+    margin: 5px 20px;
+    font-size:14px;
+    text-align:justify;
+}
+
+#seccion4 aside#der h1{
+    line-height: 50px;
+    text-align:center;
+    background: olive;
+    color:white;
+    margin-bottom: 5px;
+}
+
+#seccion4 input{
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0px;
+}
+
+#seccion4 input:last-child{
+    background-color: rosybrown;
+    border: none;
+    cursor: pointer;
+}
+
+#seccion4 input:last-child:hover{
+    background-color: rgb(192, 131, 131);
+}
+
+footer{
+    padding:20px 10px;
+}
+
+footer div{
+    background: rgb(156, 14, 156);
+    text-align: center;
+    line-height:50px;
+    color:white;
+}
+
+@media(min-width:3000px){
     .col-lg-12{width:100%;}
     .col-lg-11{width:91.66666667%;}
     .col-lg-10{width:83.33333333%;}
@@ -67,9 +177,14 @@ header center#icono3{
     .col-lg-3{width:25%;}
     .col-lg-2{width:16.66666667%;}
     .col-lg-1{width:8.333333333%;}
+    .col-lg-0{display:none;}
+
+    #seccion4 article p img{
+        width: 50%;
+    }
 }
 
-@media(max-width:1199px) and (min-width: 992px){
+@media(max-width:2999px) and (min-width: 992px){
     .col-md-12{width:100%;}
     .col-md-11{width:91.66666667%;}
     .col-md-10{width:83.33333333%;}
@@ -82,6 +197,11 @@ header center#icono3{
     .col-md-3{width:25%;}
     .col-md-2{width:16.66666667%;}
     .col-md-1{width:8.333333333%;}
+    .col-lg-0{display:none;}
+
+    #seccion4 article p img{
+        width: 60%;
+    }
 }
 
 @media(max-width:991px) and (min-width:768px){
@@ -97,6 +217,11 @@ header center#icono3{
     .col-sm-3{width:25%;}
     .col-sm-2{width:16.66666667%;}
     .col-sm-1{width:8.333333333%;}
+    .col-lg-0{display:none;}
+
+    #seccion4 article p img{
+        width: 100%;
+    } 
 }
 
 @media(max-width:767px) {
@@ -112,5 +237,11 @@ header center#icono3{
     .col-xs-3{width:25%;}
     .col-xs-2{width:16.66666667%;}
     .col-xs-1{width:8.333333333%;}
+    .col-lg-0{display:none;}
+
+    #seccion4 article p img{
+        width: 100%;
+        margin-bottom: 20px;
+    } 
 }
 
