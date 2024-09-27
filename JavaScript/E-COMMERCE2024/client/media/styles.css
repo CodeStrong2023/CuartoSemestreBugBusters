@@ -1,3 +1,38 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+
+nav{
+    height: 80px;
+    background-color: #8fe3ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h1{
+        font-size: 40px;
+        color: rgb(248, 246, 246);
+    }
+}
+
+footer{
+    height: 50px;
+    width: 100%;
+    background-color: #8fe3ff;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p{
+        color: white;
+        font-size: 20px;
+        text-align: center;
+    }
+}
+
 /*products styles*/
 .card-products-container {
     margin: 5vh auto;
@@ -11,6 +46,26 @@
     flex-wrap: wrap;
 }
 
+.card{
+    border: 1px solid rgba(0,0,0,0.35);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    margin: 10px;
+    h3{
+        margin: 10px;
+        font-size: 24px;
+    };
+    p{
+        margin: 10px;
+        font-size: 20px;
+    }
+}
+
+.card:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
 .card-products img {
     margin-top: 40px;
     width: 250px;
@@ -22,11 +77,13 @@
     outline: 0;
     padding: 10px;
     color: white;
-    background-color: #53ef91;
+    background-color: #0cb7f2;
     text-align: center;
     cursor: pointer;
     width: 100%;
     font-size: 15px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .card-products button:hover {
@@ -36,19 +93,32 @@
 /*card button*/
 .cart-btn {
     position: fixed;
-    top:  90vh;
+    top:  85vh;
     right: 40px;
     background-color: rgb(25,25,25);
     padding: 10px;
     border-radius: 50%;
-    height: 24px;
-    width: 24px;
     transition: transform 0.2s ease-in-out;
 }
 
-.cart-btn :hover {
+.cart-btn:hover {
     cursor: pointer;
     opacity: 0.9;
+}
+
+.cart-counter{
+    display: none;
+    position: fixed;
+    top: 85vh;
+    right: 32px;
+    color: white;
+    text-align: center;
+    background-color: #ed3434;
+    border-radius: 50%;
+    padding: 1px;
+    height: 18px;
+    width: 18px;
+    font-size: 15px;
 }
 
 /*modal*/
@@ -86,6 +156,9 @@
 .modal-close {
     float: right;
     cursor: pointer;
+    background-color: #e8e8e7;
+    padding: 5px;
+    border-radius: 50%;
 }
 
 .modal-title {
@@ -93,4 +166,129 @@
     font-weight: bold;
     margin-bottom: 20px;
     text-align: center;
+}
+/*modal body*/
+.modal-body{
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+.product {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+.product-img{
+    height: 80px;
+    margin-right: 20px;
+    width: 80px;
+}
+
+.product-img {
+    height: 80px;
+    margin-right: 20px;
+    width: 80px;
+}
+
+.product-info {
+    flex: 1;
+    text-align: left;
+}
+.product-info h4{
+    margin-top: 35px;
+}
+.quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-right: 4em;
+}
+
+.quantity-btn-decrease,
+.quantity-btn-increase {
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 6px;
+    font-weight: bold;
+    background-color: gray;
+    border-radius: 50%;
+}
+
+.delete-product{
+    background-color: #e8e8e7;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.quantity-input {
+    color: #333333;
+    font-size: 16px;
+    padding: 10 10px;
+    text-align: center;
+    width: 50px;
+    font-weight: bold;
+}
+@media only screen and (max-width: 500px) {
+    nav h1{
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .product-img {
+        display: none;
+    }
+    .modal-body {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .modal-container{
+        padding: 0;
+        .modal-title{
+            margin-top: 10px;
+        }
+    }
+
+    .modal-body,.modal-footer{
+        width: 100%;
+        margin: 0;
+    }
+}
+
+.price {
+    font-size: 20px;
+    font-weight: 2em;
+    cursor: pointer;
+}
+
+.modal-footer {
+    text-align: center;
+}
+
+.total-price {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.btn-primary{
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btn-primary:hover{
+    background-color: #0069d9;
+    border-color: #0069d9;
 }
