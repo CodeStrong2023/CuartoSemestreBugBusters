@@ -1,9 +1,52 @@
-export const listarTareas = (req, res) => res.send("Obteniendo tareas");
+import { pool } from "../db.js";
 
-export const listarTarea = (req, res) => res.send("Tarea unica");
+export const listarTareas = async (req, res) => {
+    const resultado = await pool.query("SELECT * FROM tareas");
+    console.log(resultado);
+    return res.json(resultado.rows);
+};
 
-export const crearTarea = (req, res) => res.send("Creando tarea");
+export const listarTarea = (req, res) => async (req, res) => {
+    const resultado = await pool.query("SELECT * FROM tareas WHERE id = $1", [req.params.id]);   
+    if(resultado.rowCount === 0){
+        return res.status(404).json({message: "La tearea no existe" });
+    }
+    return res.json(resultado.rows);
+}
 
-export const actualizarTarea = (req, res) => res.send("actualizando tarea");
+export const crearTarea = async (req, res, next) => {
+    const { titulo, descripcion } = req.body;
+    try {
+        const result = await pool.query(
+            "INSERT INTO tareas (titulo, descripcion) VALUES ($1, $2) RETURNING *",
+            [titulo, descripcion]
+        );
+        res.json(result.rows[0]);
+        console.log(result.rows[0]);
+    } catch (error) {
+        if (error.code === "23505") {
+            return res.status(409).json({ message: "La tarea ya existe" });
+        }
+        console.log(error);
+        next(error);
+    }
+};
 
-export const eliminarTarea = (req, res) => res.send("Eliminando tarea");
+export const actualizarTarea = (req, res) => async (req, res) => {
+    const { titulo, descripcion } = req.body;
+    const id = req.params.id;
+
+    const resultado = await pool.query("UPDATE tareas SET titulo = $1, descripcion = $2 WHERE id = $3 RETURNING *", [titulo, descripcion, id]);
+    if(resultado.rowCount === 0){
+        return res.status(404).json({message: "La tearea no existe" });
+    }
+    return res.json(resultado.rows[0]);
+}
+
+export const eliminarTarea = (req, res) => async (req, res) => {
+    const resultado = await pool.query("DELETE FROM tareas WHERE id = $1", [req.params.id]);
+    if(resultado.rowCount === 0){
+        return res.status(404).json({message: "La tearea no existe" });
+    }
+    return res.json({message: "Tarea eliminada"});
+}
