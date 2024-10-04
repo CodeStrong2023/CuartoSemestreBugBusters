@@ -1,11 +1,12 @@
+
 CREATE TABLE tareas{
     id SERIAL PRIMARY KEY;
     titulo VARCHAR (255) UNIQUE NOT NULL,
-    descripcion test;
+    descripcion TEXT;
 };
 
 CREATE TABLE usuarios(
-        id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     nombre VARCHAR (255) UNIQUE NOT NULL,
     email VARCHAR (255) UNIQUE NOT NULL,
     password VARCGHAR(255) NOT NULL,
