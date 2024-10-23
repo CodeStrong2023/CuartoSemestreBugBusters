@@ -24,14 +24,18 @@ public class LibroFrom extends JFrame {
     private JTextField idTexto;
     private JLabel l;
     private JTextField libroTexto;
-    private JPanel LibroTexto;
     private JTextField autorTextoTextField;
     private JTextField precioTextoTextField;
     private JTextField existenciasTextoTextField;
     private JButton agregarButton;
     private JButton modificarButton;
     private JButton eliminarButton;
+    private JLabel autorLabel;
+    private JLabel precioLabel;
+    private JLabel existenciasLabel;
     private DefaultTableModel tablaModeloLibros;
+
+    private boolean modoAgregar = true;
 
     @Autowired
     public LibroFrom(LibroServicio libroServicio){
@@ -66,6 +70,13 @@ public class LibroFrom extends JFrame {
         // Leer los valores del formulario
         if (libroTexto.getText().equals("")) {
             mostrarMensaje("Ingresa el nombre del libro");
+            libroTexto.requestFocusInWindow();
+            return;
+        }
+
+        if (autorTextoTextField.getText().equals("")) {
+            mostrarMensaje("Ingresa el nombre del autor");
+            autorTextoTextField.requestFocusInWindow();
             return;
         }
 
@@ -78,7 +89,7 @@ public class LibroFrom extends JFrame {
             // Creamos el objeto de libro
             var libro = new Libro(null, nombreLibro, autor, precio, existencias);
             this.libroServicio.guardarLibro(libro);
-            mostrarMensaje("Se agregó el libro...");
+            mostrarMensaje("Se agregó el libro");
             limpiarFormulario();
             listarLibros();
         } catch (NumberFormatException e) {
@@ -90,6 +101,8 @@ public class LibroFrom extends JFrame {
         // Los indices de las columnas inician en 0
         var renglon = tablaLibros.getSelectedRow();
         if(renglon != -1){
+            modoAgregar = false;
+            agregarButton.setEnabled(false);
             String idLibro = tablaLibros.getModel().getValueAt(renglon, 0).toString();
             idTexto.setText(idLibro);
             String nombreLibro = tablaLibros.getModel().getValueAt(renglon, 1).toString();
@@ -110,7 +123,7 @@ public class LibroFrom extends JFrame {
         else{
             //Verificamos que nombre del libro no sea nulo
             if(libroTexto.getText().equals("")){
-                mostrarMensaje("Digite el nombre del libro...");
+                mostrarMensaje("Escriba el nombre del libro");
                 libroTexto.requestFocusInWindow();
                 return;
             }
@@ -122,7 +135,7 @@ public class LibroFrom extends JFrame {
             var existencias = Integer.parseInt(existenciasTextoTextField.getText());
             var libro = new Libro(idLibro, nombreLibro, autor, precio, existencias);
             libroServicio.guardarLibro(libro);
-            mostrarMensaje("Se modifico el libro");
+            mostrarMensaje("Se modificó el libro");
             limpiarFormulario();
             listarLibros();
         }
@@ -141,7 +154,7 @@ public class LibroFrom extends JFrame {
             listarLibros();
         }
         else {
-            mostrarMensaje("No se ha seleccionado ningun libro de la tabla a eliminar");
+            mostrarMensaje("No se ha seleccionado ningún libro de la tabla a eliminar");
         }
     }
 
@@ -155,6 +168,8 @@ public class LibroFrom extends JFrame {
         autorTextoTextField.setText("");
         precioTextoTextField.setText("");
         existenciasTextoTextField.setText("");
+        modoAgregar = true;
+        agregarButton.setEnabled(true);
     }
 
     private void createUIComponents() {
