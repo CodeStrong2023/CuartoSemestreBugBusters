@@ -1,7 +1,7 @@
 import { pool } from "../db.js";
 import bcrypt from "bcrypt";
-import { createAccessToken } from "../libs/jwt.js";
-import md5 from md5;
+import { createAccessToken } from "../../libs/jwt.js";
+import md5 from "md5";
 
 export const signin = async (req, res) => {
     const {email, password} = req.body;
