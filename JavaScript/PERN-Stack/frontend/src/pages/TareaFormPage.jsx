@@ -21,25 +21,32 @@ function TareaFormPage() {
     editarTarea,
     errors: tareasErrors,
   } = useTareas();
+
   const onSubmit = handleSubmit(async (data) => {
     let tarea;
     if (!params.id) {
       tarea = await crearTarea(data);
-      navigate("/tareas");
+      if (!tarea.error) {
+        navigate("/tareas");
+      }
     } else {
       tarea = await editarTarea(params.id, data);
-      navigate("/tareas");    
+      if (!tarea.error) {
+        navigate("/tareas");
+      }
     }
   });
 
   useEffect(() => {
     if (params.id) {
       cargarTarea(params.id).then((tarea) => {
-        setValue("titulo", tarea.titulo);
-        setValue("descripcion", tarea.descripcion);
+        setValue("titulo", tarea[0].titulo);
+        setValue("descripcion", tarea[0].descripcion);
       });
     }
   }, []);
+  
+
   return (
     <div className="flex h-[80vh] justify-center items-center">
       <Card>

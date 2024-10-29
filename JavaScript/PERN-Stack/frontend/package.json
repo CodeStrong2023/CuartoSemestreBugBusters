@@ -6,14 +6,20 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "start": "serve dist -p $PORT"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-hook-form": "^7.53.1",
-    "react-router-dom": "^6.27.0"
+    "axios": "^1.5.0",
+    "js-cookie": "^3.0.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.46.1",
+    "react-icons": "^4.11.0",
+    "react-router-dom": "^6.16.0",
+    "serve": "^14.2.1",
+    "tailwind-merge": "^1.14.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",

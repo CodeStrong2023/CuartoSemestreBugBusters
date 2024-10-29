@@ -2,11 +2,11 @@ import { pool } from "../db.js";
 
 export const listarTareas = async (req, res) => {
     console.log(req.usuarioId);
-    const resultado = await pool.query("SELECT * FROM tareas WHERE usuario_id = $1", req.usuarioId);
+    const resultado = await pool.query("SELECT * FROM tareas WHERE usuario_id = $1", [req.usuarioId]);
     return res.json(resultado.rows);
 };
 
-export const listarTarea = (req, res) => async (req, res) => {
+export const listarTarea = async (req, res) => {
     const resultado = await pool.query("SELECT * FROM tareas WHERE id = $1", [req.params.id]);   
     if(resultado.rowCount === 0){
         return res.status(404).json({message: "La tearea no existe" });
@@ -19,7 +19,7 @@ export const crearTarea = async (req, res, next) => {
     try {
         const result = await pool.query(
             "INSERT INTO tareas (titulo, descripcion, usuario_id) VALUES ($1, $2, $3) RETURNING *",
-            [titulo, descripcion, req.usuario_id]
+            [titulo, descripcion, req.usuarioId]
         );
         res.json(result.rows[0]);
         console.log(result.rows[0]);
@@ -29,10 +29,10 @@ export const crearTarea = async (req, res, next) => {
         }
         console.log(error);
         next(error);
-    }
+    }       
 };
 
-export const actualizarTarea = (req, res) => async (req, res) => {
+export const actualizarTarea = async (req, res) => {
     const { titulo, descripcion } = req.body;
     const id = req.params.id;
 
@@ -43,7 +43,7 @@ export const actualizarTarea = (req, res) => async (req, res) => {
     return res.json(resultado.rows[0]);
 }
 
-export const eliminarTarea = (req, res) => async (req, res) => {
+export const eliminarTarea = async (req, res) => {
     const resultado = await pool.query("DELETE FROM tareas WHERE id = $1", [req.params.id]);
     if(resultado.rowCount === 0){
         return res.status(404).json({message: "La tearea no existe" });
