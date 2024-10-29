@@ -8,7 +8,7 @@ function TareasPage() {
 
   useEffect(() => {
     cargarTareas();
-  }, []);
+  }, [cargarTareas]);
 
   if (tareas.length === 0) {
     return (
