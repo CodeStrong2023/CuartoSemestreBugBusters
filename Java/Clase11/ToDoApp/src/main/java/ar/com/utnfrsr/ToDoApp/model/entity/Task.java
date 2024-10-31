@@ -33,7 +33,7 @@ public class Task {
     @Column(name = "created_date", nullable = false)
     private LocalDateTime createdDate;
 
-    @DateTimeFormat(pattern = "yyyy-MM-DD")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "date", nullable = false)
     private Date date;
 
@@ -41,7 +41,7 @@ public class Task {
     private LocalTime time;
 
     @Column(name = "finished", nullable = false)
-    private boolean finished;
+    private boolean finished = false;
 
     @Column(name = "enable")
     private boolean enabled = true;
