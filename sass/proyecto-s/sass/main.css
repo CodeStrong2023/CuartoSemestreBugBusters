@@ -19,8 +19,10 @@ nav p {
 nav .icons {
   display: flex;
   gap: 10px;
-  button-background: none;
-  button-border-style: none;
+}
+nav .icons button {
+  background: none;
+  border-style: none;
 }
 
 main {
@@ -31,7 +33,12 @@ article {
   width: auto;
   color: rgb(63, 38, 1);
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 45px;
+  padding-right: 45px;
+  padding-top: 70px;
 }
 article .objetivo-section {
   display: flex;
@@ -59,6 +66,59 @@ article button {
 article img {
   width: 25vw;
   border-radius: 19px;
+  margin-bottom: 20px;
+}
+
+.product-section {
+  width: auto;
+  height: auto;
+  background-color: rgb(214, 201, 176);
+  padding: 60px;
+  text-align: center;
+}
+
+.card-section1, .card-section2 {
+  display: flex;
+  width: auto;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 200px;
+       column-gap: 200px;
+  row-gap: 200px;
+}
+.card-section1 .product-card, .card-section2 .product-card {
+  width: 14vw;
+  height: 45vh;
+  background-color: rgb(224, 124, 31);
+  color: rgb(63, 38, 1);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+.card-section1 .product-card .icons, .card-section2 .product-card .icons {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 12px;
+}
+.card-section1 .product-card .icons svg, .card-section2 .product-card .icons svg {
+  width: 28px;
+  height: 28px;
+  stroke: olive;
+  stroke-width: yellow;
+}
+.card-section1 .product-card img, .card-section2 .product-card img {
+  width: 200px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+}
+
+.card-section2 .product-card {
+  background-color: rgb(226, 226, 154);
+  color: rgb(37, 51, 12);
 }
 
 footer {
