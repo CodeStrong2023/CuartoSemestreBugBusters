@@ -7,6 +7,6 @@ print(r.status_code)
 print(type(r.text)) #Vemos de que tipo es el texto, puede ser un string
 #En este caso es: un string por el text, pero
 #Aqui encontramos un diccionario con listas
-razas = r.json()
+razas =s r.json()
 for raza in razas.values(): #Utilizamos la funcion para los valores
     print(f"Raza de los perritos: {raza}") #Estamos recorriendo los valores del diccionario
